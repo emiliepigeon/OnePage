@@ -64,6 +64,10 @@
     font-weight: 600;
     letter-spacing: 5px;
 }
+.menu a {
+    color: inherit; /* Hérite la couleur du parent (.menu) */
+    text-decoration: none; /* Supprime le soulignement */
+}
 
 /* ------------- Section 1 > #presentation -----------*/
 #presentation .container {
@@ -104,15 +108,21 @@ p {
     font-family: var(--font-family);
     justify-content: space-around;
 }
+
 .round {
     border-radius: 100%;
     width: 65%;
     border: 1px solid #000;
     margin-top: 25px;
+    box-shadow: 10px 10px 5px 5px rgb(116, 115, 115, 0.5);
 }
 article {
     /* border: 1px solid yellow; */
     text-align: center;
+}
+#equipe article a {
+    color: inherit; /* Hérite la couleur du texte parent */
+    text-decoration: none; /* Supprime le soulignement */
 }
 
 h2, h3, h4 {
@@ -120,7 +130,6 @@ h2, h3, h4 {
     font-family: var(--font-family);
     margin: 5px;
     letter-spacing: 2px;
-
 }
 
 /* ------------- Section 3 > #contact -----------*/
@@ -176,6 +185,7 @@ h2, h3, h4 {
     box-sizing: border-box;
     border: 1px solid #ccc;
     border-radius: 4px;
+    box-shadow: 10px 5px 5px rgb(116, 115, 115, 0.2);
 }
 
 .form-message {
@@ -198,6 +208,7 @@ h2, h3, h4 {
     border: 1px solid #ccc;
     border-radius: 4px;
     min-height: 150px;
+    box-shadow: 10px 5px 5px rgb(116, 115, 115, 0.2);
 }
 
 .button {
