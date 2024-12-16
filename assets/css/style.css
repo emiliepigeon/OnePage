@@ -1,0 +1,247 @@
+/* ------------- Style général de la page -----------------*/
+:root {
+    --primary-color: #000509;
+    --secondary-color: #6c757d;
+    --third-color: #fafbfb;
+    --font-family: Arial, sans-serif;
+}
+
+#title {
+    text-align: center;
+    font-family: var(--font-family);
+    text-decoration: underline;
+    text-transform: uppercase;
+    font-size: 20px;
+    letter-spacing: 5px;
+    margin-top: 50px;
+    margin-bottom: 10px;
+}
+
+/* ------------- Header #header > LOGO et NAVBAR -----------*/
+#header {
+    width: 100%;
+    margin: 0 auto;
+    /* border: 1px solid red; */
+}
+
+#header .container {
+    width: 100%;
+    max-width: 100%; /* Ajustez selon vos besoins */
+    margin: 0 auto;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#logoheader {
+    margin-bottom: -5px; /* Espace entre le logo et la navbar */
+    text-align: center;
+}
+
+#navbar {
+    width: 100%; /* Occupe 100% de la largeur du conteneur */
+    background-color: var(--primary-color);
+}
+
+.navbar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    width: 100%; /* Assure que la liste prend toute la largeur */
+}
+
+.menu {
+    flex-grow: 1; /* Chaque élément prend une part égale de l'espace */
+    text-align: center;
+    padding: 10px 0;
+    color: var(--third-color);
+    font-family: var(--font-family);
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 5px;
+}
+
+/* ------------- Section 1 > #presentation -----------*/
+#presentation .container {
+    width: 65%;
+    /* Largeur maximale pour les deux sections */
+    margin: 0 auto;
+    /* Centre la section horizontalement */
+    display: flex;
+    align-items: center;
+    /* Centre le contenu verticalement */
+    flex-wrap: wrap;
+    /* border: 1px solid green; */
+    font-family: var(--font-family);
+}
+
+span {
+    font-weight: 800;
+}
+
+p {
+    font-family: var(--font-family);
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 2px;
+    font-weight: 400;
+}
+
+/* ------------- Section 2 > #equipe -----------*/
+#equipe .container {
+    width: 65%;
+    /* Largeur maximale pour les deux sections */
+    margin: 0 auto;
+    /* Centre la section horizontalement */
+    display: flex;
+    align-items: center;
+    /* Centre le contenu verticalement */
+    /* border: 1px solid blue; */
+    font-family: var(--font-family);
+    justify-content: space-around;
+}
+.round {
+    border-radius: 100%;
+    width: 65%;
+    border: 1px solid #000;
+    margin-top: 25px;
+}
+article {
+    /* border: 1px solid yellow; */
+    text-align: center;
+}
+
+h2, h3, h4 {
+    font-size: 16px;
+    font-family: var(--font-family);
+    margin: 5px;
+    letter-spacing: 2px;
+
+}
+
+/* ------------- Section 3 > #contact -----------*/
+#contact {
+    font-family: var(--font-family);
+    width: 100%;
+}
+
+#contact .container {
+    width: 100%;
+    max-width: 1200px; /* Ajustez selon vos besoins */
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* border: 1px solid orange; */
+    padding: 20px;
+}
+
+#title {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+#form {
+    width: 100%;
+}
+
+.form-group {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: row;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.form-group > div {
+    width: 22%; /* Ajustez selon le nombre d'éléments */
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.form-message {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.form-message label {
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.form-message textarea {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    min-height: 150px;
+}
+
+.button {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.button input[type="submit"] {
+    padding: 10px 30px;
+    background-color: var(--secondary-color);
+    color: var(--third-color);
+    border: none;
+    border-radius: 5px;
+    width: 25%;
+    /* cursor: pointer; */
+    font-family: var(--font-family);
+    font-weight: 600;
+    font-size: 18px;
+    letter-spacing: 2px;
+    margin-bottom: 50px;
+}
+
+/* ------------- Footer #footer -----------*/
+#footer {
+    width: 100%;
+    /* Largeur maximale pour les deux sections */
+    margin: 0 auto;
+    /* Centre la section horizontalement */
+    display: flex;
+    align-items: center;
+    /* Centre le contenu verticalement */
+    flex-wrap: wrap;
+    justify-content: space-around;
+    /* border: 1px solid purple; */
+    font-family: var(--font-family);
+    background-color: var(--secondary-color);
+    padding-top: 15px;
+    color: var(--third-color);
+    font-family: var(--font-family);
+}
+
+#footer li {
+    list-style: none;
+    font-size: 18px;
+    margin-bottom: 15px;
+}
