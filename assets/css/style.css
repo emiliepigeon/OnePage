@@ -1,3 +1,10 @@
+/* Reset général pour éliminer les marges par défaut */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 /* ------------- Style général de la page -----------------*/
 :root {
     --primary-color: #000509;
@@ -14,20 +21,17 @@
     font-size: 20px;
     letter-spacing: 5px;
     margin-top: 50px;
-    margin-bottom: 10px;
+    margin-bottom: 25px;
 }
 
+/**************************************************************************************/
 /* ------------- Header #header > LOGO et NAVBAR -----------*/
 #header {
     width: 100%;
-    margin: 0 auto;
-    /* border: 1px solid red; */
 }
 
 #header .container {
     width: 100%;
-    max-width: 100%; /* Ajustez selon vos besoins */
-    margin: 0 auto;
     padding: 10px;
     display: flex;
     flex-direction: column;
@@ -35,28 +39,39 @@
 }
 
 #logoheader {
-    margin-bottom: -5px; /* Espace entre le logo et la navbar */
+    margin-bottom: -8px;
     text-align: center;
 }
 
 #navbar {
-    width: 100%; /* Occupe 100% de la largeur du conteneur */
+    width: 100vw;
+    /* Utilise la largeur totale de la fenêtre */
     background-color: var(--primary-color);
+    display: flex;
+    justify-content: center;
+    margin-left: calc(-50vw + 50%);
+    /* 
+        Utilise calc() pour ajuster la marge gauche de la barre de navigation.
+        - '50vw' représente la moitié de la largeur de la fenêtre (viewport).
+        - Le signe '-' déplace l'élément vers la gauche de cette distance.
+        - '50%' représente la moitié de la largeur du conteneur parent.
+        - En ajoutant '50%', on compense le déplacement à gauche,
+            ce qui permet à #navbar d'occuper toute la largeur de l'écran,
+            même si elle est à l'intérieur d'un conteneur centré.
+    */
 }
 
-.navbar {
+.navbarlist {
     list-style-type: none;
-    margin: 0;
-    padding: 0;
     display: flex;
-    justify-content: space-between;
-    width: 100%; /* Assure que la liste prend toute la largeur */
+    justify-content: center;
+    width: 80%;
 }
 
 .menu {
-    flex-grow: 1; /* Chaque élément prend une part égale de l'espace */
+    flex-grow: 0;
     text-align: center;
-    padding: 10px 0;
+    padding: 10px 100px;
     color: var(--third-color);
     font-family: var(--font-family);
     text-transform: uppercase;
@@ -64,11 +79,13 @@
     font-weight: 600;
     letter-spacing: 5px;
 }
+
 .menu a {
-    color: inherit; /* Hérite la couleur du parent (.menu) */
-    text-decoration: none; /* Supprime le soulignement */
+    color: inherit;
+    text-decoration: none;
 }
 
+/********************************** MAIN ********************************************/
 /* ------------- Section 1 > #presentation -----------*/
 #presentation .container {
     width: 65%;
@@ -93,6 +110,7 @@ p {
     line-height: 1.5;
     letter-spacing: 2px;
     font-weight: 400;
+    margin-bottom: 25px;
 }
 
 /* ------------- Section 2 > #equipe -----------*/
@@ -116,16 +134,20 @@ p {
     margin-top: 25px;
     box-shadow: 10px 10px 5px 5px rgb(116, 115, 115, 0.5);
 }
+
 article {
     /* border: 1px solid yellow; */
     text-align: center;
 }
+
 #equipe article a {
-    color: inherit; /* Hérite la couleur du texte parent */
-    text-decoration: none; /* Supprime le soulignement */
+    color: inherit;
+    /* Hérite la couleur du texte parent */
+    text-decoration: none;
+    /* Supprime le soulignement */
 }
 
-h2, h3, h4 {
+h3, h4, h5 {
     font-size: 16px;
     font-family: var(--font-family);
     margin: 5px;
@@ -134,85 +156,75 @@ h2, h3, h4 {
 
 /* ------------- Section 3 > #contact -----------*/
 #contact {
-    font-family: var(--font-family);
     width: 100%;
+    font-family: var(--font-family);
 }
 
 #contact .container {
-    width: 100%;
-    max-width: 1200px; /* Ajustez selon vos besoins */
+    width: 65%;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* border: 1px solid orange; */
     padding: 20px;
-}
-
-#title {
-    text-align: center;
-    margin-bottom: 30px;
 }
 
 #form {
     width: 100%;
 }
 
+/* Styles généraux pour les champs du formulaire */
+.form-group, .form-message {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
 .form-group {
     display: flex;
     justify-content: space-between;
-    flex-wrap: row;
-    width: 100%;
-    margin-bottom: 20px;
+    flex-wrap: wrap;
 }
 
-.form-group > div {
-    width: 22%; /* Ajustez selon le nombre d'éléments */
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 15px;
+.form-group>div {
+    /* 
+    La propriété "width" définit la largeur de chaque élément <div> à l'intérieur de .form-group.
+    Ici, on utilise la fonction CSS "calc()" pour calculer dynamiquement cette largeur.
+    */
+    width: calc(25% - 10px);
+    /* 
+    - "25%" signifie que chaque <div> occupe 25% de la largeur totale de son conteneur parent (.form-group).
+    - "- 10px" soustrait 10 pixels à cette largeur. Cela permet d'ajuster l'espace disponible pour tenir compte des marges ou des espaces entre les éléments.   
+    Pourquoi utiliser calc() ?
+    - Cela permet de mélanger des unités différentes (ici %, une unité relative, et px, une unité absolue).
+    - Cela garantit que les éléments restent proportionnels tout en tenant compte d'un espace fixe (les 10 pixels ici).
+    */
 }
 
-.form-group label {
+label {
+    display: block;
+    /* Assure que le label est au-dessus du champ */
     margin-bottom: 5px;
     text-transform: uppercase;
     font-weight: 500;
 }
 
-.form-group input {
+input, textarea {
     width: 100%;
     padding: 8px;
-    box-sizing: border-box;
     border: 1px solid #ccc;
     border-radius: 4px;
-    box-shadow: 10px 5px 5px rgb(116, 115, 115, 0.2);
-}
-
-.form-message {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 20px;
-}
-
-.form-message label {
-    margin-bottom: 5px;
-    text-transform: uppercase;
-    font-weight: 500;
-}
-
-.form-message textarea {
-    width: 100%;
-    padding: 8px;
     box-sizing: border-box;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    /* Inclut padding et bordures dans la largeur totale */
+    box-shadow: 10px 5px 5px rgba(116, 115, 115, 0.2);
+}
+
+/* Spécificités pour le champ de texte (textarea) */
+textarea {
     min-height: 150px;
-    box-shadow: 10px 5px 5px rgb(116, 115, 115, 0.2);
 }
 
+/************************** Bouton d'envoi ********************************/
 .button {
-    width: 100%;
     display: flex;
     justify-content: center;
 }
@@ -221,17 +233,21 @@ h2, h3, h4 {
     padding: 10px 30px;
     background-color: var(--secondary-color);
     color: var(--third-color);
-    border: none;
+    border: none; /* Ajout pour supprimer la bordure par défaut */
     border-radius: 5px;
-    width: 25%;
-    /* cursor: pointer; */
-    font-family: var(--font-family);
     font-weight: 600;
-    font-size: 18px;
+    font-size: 16px;
     letter-spacing: 2px;
-    margin-bottom: 50px;
+    text-transform: uppercase;
+    cursor: pointer; /* Ajout pour indiquer que c'est cliquable */
+    transition: background-color 0.3s ease; /* Ajout pour une transition en douceur */
 }
 
+.button input[type="submit"]:hover {
+    background-color: var(--primary-color);
+}
+
+/************************************ FOOTER *********************************/
 /* ------------- Footer #footer -----------*/
 #footer {
     width: 100%;
@@ -247,6 +263,7 @@ h2, h3, h4 {
     font-family: var(--font-family);
     background-color: var(--secondary-color);
     padding-top: 15px;
+    padding-bottom: 15px;
     color: var(--third-color);
     font-family: var(--font-family);
 }
@@ -254,5 +271,5 @@ h2, h3, h4 {
 #footer li {
     list-style: none;
     font-size: 18px;
-    margin-bottom: 15px;
+    margin-bottom: 8px;
 }
