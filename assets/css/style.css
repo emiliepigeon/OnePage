@@ -69,9 +69,10 @@
 }
 
 .menu {
+    position: relative;
     flex-grow: 0;
     text-align: center;
-    padding: 10px 100px;
+    padding: 10px 65px;
     color: var(--third-color);
     font-family: var(--font-family);
     text-transform: uppercase;
@@ -83,6 +84,42 @@
 .menu a {
     color: inherit;
     text-decoration: none;
+}
+
+/* Nouveaux styles pour le sous-menu */
+.submenu {
+    display: none; /* Masque le sous-menu par défaut, il ne sera pas visible tant que l'utilisateur ne survole pas le menu parent */
+    position: absolute; /* Positionne le sous-menu par rapport à son élément parent (le menu) */
+    top: 100%; /* Place le sous-menu juste en dessous de l'élément parent */
+    left: 50%; /* Centre le sous-menu horizontalement par rapport à l'élément parent */
+    transform: translateX(-50%); /* Déplace le sous-menu vers la gauche de 50% de sa propre largeur pour un centrage parfait */
+    background-color: var(--primary-color); /* Définit la couleur de fond du sous-menu en utilisant une variable CSS */
+    list-style-type: none; /* Supprime les puces de la liste pour un affichage plus propre */
+    padding: 0; /* Supprime le padding par défaut des éléments de liste */
+    min-width: 200px; /* Définit une largeur minimale pour le sous-menu afin qu'il soit suffisamment large pour contenir les éléments */
+    text-align: center; /* Centre le texte à l'intérieur du sous-menu */
+}
+
+.menu:hover .submenu {
+    display: block; /* Affiche le sous-menu lorsque l'utilisateur survole l'élément parent (le menu) */
+    background-color: var(--secondary-color); /* Change la couleur de fond du sous-menu lors du survol du menu parent */
+}
+
+.submenu li {
+    padding: 10px; /* Ajoute un espace autour de chaque élément de liste dans le sous-menu pour améliorer la lisibilité et l'interaction */
+}
+
+.submenu a {
+    color: var(--third-color); /* Définit la couleur du texte des liens dans le sous-menu en utilisant une variable CSS */
+    text-decoration: none; /* Supprime le soulignement par défaut des liens pour un style plus propre */
+    font-size: 14px; /* Définit la taille de police pour les liens dans le sous-menu */
+    text-transform: none; /* Ne transforme pas le texte en majuscules ou minuscules, conserve la casse originale */
+    letter-spacing: normal; /* Définit l'espacement entre les lettres à la valeur normale, sans espacement supplémentaire */
+}
+
+/* Change la couleur des liens au survol dans le sous-menu */
+.submenu a:hover {
+    color: var(--primary-color); /* Change la couleur du texte au survol pour indiquer que l'élément est interactif */
 }
 
 /********************************** MAIN ********************************************/
