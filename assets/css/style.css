@@ -21,7 +21,8 @@
     font-size: 20px;
     letter-spacing: 5px;
     margin-top: 50px;
-    margin-bottom: 25px;
+    margin-bottom: 50px;
+    word-spacing: 2px;
 }
 
 /**************************************************************************************/
@@ -143,8 +144,8 @@ span {
 
 p {
     font-family: var(--font-family);
-    font-size: 16px;
-    line-height: 1.5;
+    font-size: 14px;
+    line-height: 2;
     letter-spacing: 2px;
     font-weight: 400;
     margin-bottom: 25px;
@@ -278,6 +279,7 @@ textarea {
     text-transform: uppercase;
     cursor: pointer; /* Ajout pour indiquer que c'est cliquable */
     transition: background-color 0.3s ease; /* Ajout pour une transition en douceur */
+    margin-bottom: 25px;
 }
 
 .button input[type="submit"]:hover {
@@ -287,26 +289,99 @@ textarea {
 /************************************ FOOTER *********************************/
 /* ------------- Footer #footer -----------*/
 #footer {
-    width: 100%;
-    /* Largeur maximale pour les deux sections */
-    margin: 0 auto;
-    /* Centre la section horizontalement */
-    display: flex;
-    align-items: center;
-    /* Centre le contenu verticalement */
-    flex-wrap: wrap;
-    justify-content: space-around;
-    /* border: 1px solid purple; */
-    font-family: var(--font-family);
-    background-color: var(--secondary-color);
-    padding-top: 15px;
-    padding-bottom: 15px;
-    color: var(--third-color);
-    font-family: var(--font-family);
+    width: 100%; /* Largeur maximale pour le pied de page */
+    margin: 0 auto; /* Centre la section horizontalement */
+    display: flex; /* Utilise flexbox pour la mise en page */
+    align-items: center; /* Centre le contenu verticalement */
+    justify-content: center; /* Centre les divs horizontalement */
+    font-family: var(--font-family); /* Utilise la police définie dans les variables CSS */
+    background-color: var(--secondary-color); /* Couleur de fond du pied de page */
+    padding-top: 15px; /* Espacement en haut */
+    padding-bottom: 15px; /* Espacement en bas */
+    color: var(--third-color); /* Couleur du texte */
+}
+
+.footergauche {
+    text-align: end;
+}
+.footermilieu {
+    text-align: center;
+}
+
+#footer > div {
+    width: 50%; /* Définit une largeur fixe pour chaque div (ajustez selon vos besoins) */
+    max-width: 500px; /* Optionnel : définit une largeur maximale pour éviter que les divs ne deviennent trop larges sur des écrans plus grands */
+    margin: 10px; /* Ajoute un espacement autour des divs pour éviter qu'ils ne soient collés les uns aux autres */
 }
 
 #footer li {
-    list-style: none;
-    font-size: 18px;
-    margin-bottom: 8px;
+    list-style: none; /* Supprime les puces des listes */
+    font-size: 18px; /* Taille de police pour les éléments de liste */
+    margin-bottom: 8px; /* Espacement entre les éléments de liste */
 }
+
+#footer a {
+    color: inherit; /* Hérite la couleur du texte parent */
+    text-decoration: none; /* Supprime le soulignement des liens */
+}
+
+/**********************************************************************************/
+/********************** RESPONSIVE TABLETTE ET MOBILE ******************************/
+/* Médias Queries pour les tablettes */
+@media (min-width: 769px) and (max-width: 1024px) {
+    #navbar {
+        flex-direction: row; /* Assure que le menu est en ligne sur tablette */
+        justify-content: space-between; /* Espace entre les éléments du menu */
+    }
+
+    .menu {
+        padding: 10px 40px; /* Ajuste le padding pour un meilleur espacement sur tablette */
+        font-size: 15px; /* Ajuste la taille de police pour le texte du menu */
+    }
+
+    #presentation .container,
+    #equipe .container,
+    #contact .container {
+        width: 80%; /* Ajuste la largeur des sections à 80% sur tablette */
+    }
+
+    .form-group>div {
+        width: calc(50% - 10px); /* Deux champs par ligne sur tablette */
+    }
+
+    h3, h4, h5 {
+        font-size: 15px; /* Ajuste la taille de police des titres sur tablette */
+    }
+}
+/* Médias Queries pour les appareils mobiles */
+@media (max-width: 768px) {
+    #navbar {
+        flex-direction: column; /* Change la direction du flex pour empiler les éléments */
+        margin-left: 0; /* Supprime la marge gauche pour occuper toute la largeur */
+    }
+
+    .menu {
+        padding: 10px 20px; /* Réduit le padding pour les éléments du menu */
+        font-size: 14px; /* Réduit la taille de police pour le texte du menu */
+    }
+
+    .navbarlist {
+        width: 100%; /* Le menu prend toute la largeur de l'écran */
+    }
+
+    #presentation .container,
+    #equipe .container,
+    #contact .container {
+        width: 90%; /* Réduit la largeur des sections à 90% pour un meilleur ajustement sur mobile */
+    }
+
+    .form-group>div {
+        width: calc(100% - 10px); /* Chaque champ prend toute la largeur disponible */
+    }
+
+    h3, h4, h5 {
+        font-size: 14px; /* Réduit la taille de police des titres */
+    }
+}
+
+
