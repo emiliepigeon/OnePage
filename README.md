@@ -1,77 +1,127 @@
-petite explication de mon script formvalid.js
+Pour écrire un fichier dans un .gitignore, suivez ces étapes :
+Création du fichier .gitignore
 
-const lastname = document.getElementById("lastname").value.trim(); // Récupère la valeur du champ "Nom"
+    Accédez à la racine de votre projet Git :
+        Utilisez le terminal ou l'interface graphique pour naviguer vers le dossier principal de votre projet.
+    Créez le fichier .gitignore :
+        Sous Linux ou macOS, exécutez :
 
-Décomposition de la ligne de code
+bash
+touch .gitignore
 
-    const lastname :
-        const : C'est un mot-clé en JavaScript utilisé pour déclarer une constante. Une constante est une variable dont la valeur ne peut pas être réassignée après sa déclaration.
-        lastname : C'est le nom de la constante que nous créons. Elle sera utilisée pour stocker la valeur récupérée du champ "Nom".
-    document.getElementById("lastname") :
-        document : C'est un objet global qui représente le document HTML chargé dans le navigateur. Il permet d'accéder et de manipuler le contenu de la page.
-        .getElementById("lastname") : C'est une méthode de l'objet document. Elle recherche un élément HTML ayant un attribut id égal à "lastname".
-            Fonctionnement :
-                Cette méthode parcourt l'ensemble du document et retourne le premier élément qui correspond à l'ID spécifié.
-                Si aucun élément avec cet ID n'existe, elle renvoie null.
-            Importance : Utiliser getElementById est très pratique pour accéder directement à un élément unique sur la page, ce qui est souvent nécessaire pour lire ou modifier ses propriétés.
-    .value :
-        .value : C'est une propriété de l'élément HTML récupéré (dans ce cas, un champ de saisie <input>). Elle contient la valeur actuelle saisie par l'utilisateur dans ce champ.
-        Contexte : Pour les éléments de formulaire comme <input>, <textarea>, etc., la propriété value permet d'obtenir ou de définir le texte que l'utilisateur a entré.
-    .trim() :
-        .trim() : C'est une méthode de chaîne en JavaScript qui supprime les espaces blancs au début et à la fin d'une chaîne de caractères.
-            Espaces blancs inclus : Cela inclut les espaces, les tabulations (\t) et les sauts de ligne (\n).
-            Utilité : Cette méthode est particulièrement utile pour nettoyer les entrées utilisateur, car elle élimine les espaces inutiles qui pourraient causer des problèmes lors du traitement des données (par exemple, lors de la validation ou de l'envoi à un serveur).
-            Immutabilité des chaînes : Notez que trim() ne modifie pas la chaîne d'origine ; elle renvoie une nouvelle chaîne avec les espaces supprimés.
+Sous Windows, utilisez :
+
+        powershell
+        New-Item .gitignore
+
+Édition du fichier .gitignore
+
+    Ouvrez le fichier avec un éditeur de texte :
+        Utilisez n'importe quel éditeur de texte (comme Notepad, VS Code, etc.) pour ouvrir le fichier .gitignore.
+    Ajoutez des règles d'ignorance :
+        Chaque ligne du fichier peut contenir un motif pour indiquer quels fichiers ou répertoires doivent être ignorés.
+        Par exemple, pour ignorer tous les fichiers avec l'extension .log, ajoutez la ligne suivante :
+
+text
+*.log
+
+Vous pouvez également ajouter des commentaires en commençant la ligne par # :
+
+        text
+        # Ignorer tous les fichiers de log
+        *.log
+
+Exemples de motifs courants
+Voici quelques exemples de motifs que vous pouvez utiliser dans votre .gitignore :
+
+    Ignorer tous les fichiers temporaires :
+
+text
+*~
+
+Ignorer un répertoire spécifique (par exemple, node_modules) :
+
+text
+/node_modules/
+
+Ignorer tous les fichiers générés par Python :
+
+    text
+    __pycache__/
+    *.pyc
+
+Validation des modifications
+
+    Ajoutez le fichier .gitignore à votre dépôt Git :
+
+bash
+git add .gitignore
+
+Commitez les modifications :
+
+    bash
+    git commit -m "Ajout du fichier .gitignore"
+
+En suivant ces étapes, vous pourrez configurer correctement un fichier .gitignore pour votre projet, ce qui vous permettra d'éviter d'ajouter des fichiers indésirables à votre dépôt Git1.
+
+
+//////////////////////////////
+
+Si vous souhaitez créer un fichier .txt et l'ajouter à votre fichier .gitignore, voici comment procéder :
+Étapes pour créer un fichier .txt
+
+    Accédez à la racine de votre projet Git :
+        Ouvrez votre terminal ou votre invite de commandes et naviguez jusqu'au dossier de votre projet.
+    Créez le fichier .txt :
+        Sous Linux ou macOS, exécutez :
+
+bash
+touch nom_du_fichier.txt
+
+Sous Windows, utilisez :
+
+        powershell
+        New-Item nom_du_fichier.txt
+
+Édition du fichier .gitignore
+
+    Ouvrez le fichier .gitignore :
+        Si ce fichier n'existe pas encore, créez-le comme décrit précédemment.
+    Ajoutez le nom de votre fichier .txt :
+        Pour ignorer spécifiquement ce fichier, ajoutez la ligne suivante dans le fichier .gitignore :
+
+text
+nom_du_fichier.txt
+
+Si vous souhaitez ignorer tous les fichiers .txt, vous pouvez ajouter :
+
+        text
+        *.txt
+
+Exemple complet
+1. Créer un fichier texte
+Supposons que vous voulez créer un fichier nommé notes.txt. Exécutez la commande suivante :
+
+bash
+touch notes.txt  # Linux/macOS
+# ou
+New-Item notes.txt  # Windows
+
+2. Modifier le fichier .gitignore
+Ouvrez ou créez le fichier .gitignore et ajoutez :
+
+text
+# Ignorer le fichier notes.txt
+notes.txt
+
+3. Ajouter et committer les modifications
+Après avoir modifié le .gitignore, assurez-vous d'ajouter ce dernier à votre dépôt :
+
+bash
+git add .gitignore
+git commit -m "Ajout de notes.txt au .gitignore"
 
 Résumé
-En résumé, cette ligne de code effectue les opérations suivantes :
+En suivant ces étapes, vous aurez créé un fichier texte et configuré votre .gitignore pour qu'il ignore ce fichier ou tous les fichiers .txt selon vos besoins. Cela vous permettra de garder votre dépôt propre et organisé en évitant d'ajouter des fichiers non désirés.status
 
-    Elle déclare une constante nommée lastname.
-    Elle utilise document.getElementById("lastname") pour accéder à l'élément HTML avec l'ID "lastname".
-    Elle récupère la valeur actuelle saisie dans ce champ.
-    Elle applique .trim() pour nettoyer cette valeur en supprimant les espaces superflus au début et à la fin.
-    Finalement, cette valeur nettoyée est stockée dans la constante lastname, prête à être utilisée pour d'autres opérations (comme la validation ou l'envoi).
 
-////////////////////////////////////////////////////////
-
-Les données restent visibles dans la console à chaque validation du formulaire en raison de la façon dont le script JavaScript est conçu pour gérer les événements de soumission. Voici une explication détaillée de ce comportement :
-
-Explication du comportement des console.log
-
-    Écouteur d'événements pour la soumission :
-        Dans votre code JavaScript, vous avez un écouteur d'événements qui se déclenche lorsque le formulaire est soumis. Cela se fait grâce à la ligne suivante :
-
-    javascript
-    form.addEventListener("submit", function(event) {
-
-    Cette ligne indique que chaque fois que l'utilisateur essaie de soumettre le formulaire, la fonction fournie sera exécutée.
-
-Récupération des valeurs des champs :
-
-    À l'intérieur de cette fonction, vous récupérez les valeurs des différents champs du formulaire :
-
-    javascript
-    const lastname = document.getElementById("lastname").value.trim();
-
-    Chaque fois que le formulaire est soumis, ces lignes sont exécutées, ce qui signifie que les valeurs actuelles des champs sont toujours récupérées et affichées dans la console.
-
-Affichage dans la console :
-
-    Les lignes suivantes affichent ces valeurs dans la console :
-
-        javascript
-        console.log("Nom:", lastname);
-        console.log("Prénom:", firstname);
-        console.log("Email:", mail);
-        console.log("Sujet:", subject);
-        console.log("Message:", message);
-
-        Chaque fois que vous soumettez le formulaire (même si les données sont déjà présentes), ces valeurs sont enregistrées et affichées à nouveau dans la console.
-    Validation et prévention de l'envoi :
-        La fonction empêche l'envoi du formulaire par défaut avec event.preventDefault();. Cela signifie que même si les données sont validées, elles ne sont pas envoyées au serveur, mais restent visibles dans la console tant que vous ne rafraîchissez pas la page ou ne fermez pas l'onglet.
-        Si les validations échouent (par exemple, si un champ est vide ou si l'email n'est pas valide), un message d'alerte s'affiche, mais les valeurs continuent d'être visibles dans la console lors de chaque tentative de soumission.
-    Réinitialisation du formulaire :
-        Si vous souhaitez que les données ne restent pas visibles après une soumission réussie, vous pouvez utiliser form.reset(); pour vider tous les champs du formulaire après une validation réussie. Cependant, cela ne supprimera pas les messages précédents dans la console ; ils resteront visibles jusqu'à ce que vous actualisiez la page.
-
-Conclusion
-En résumé, chaque fois que vous soumettez le formulaire, le script exécute les instructions pour récupérer et afficher les valeurs des champs dans la console. Cela se produit indépendamment du fait que les données soient valides ou non. Les console.log affichent simplement l'état actuel des valeurs des champs à chaque soumission. Pour voir un comportement différent (comme effacer les logs), vous devrez soit rafraîchir la page, soit modifier le script pour ne pas afficher ces valeurs à chaque validation si cela n'est pas nécessaire.
